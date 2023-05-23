@@ -1,7 +1,7 @@
-import { knex, Knex } from "knex";
+import { knex, Knex } from 'knex';
 
-import config from "../config";
-import logger from "./logger";
+import config from '../config';
+import logger from './logger';
 
 const processEnv = config.env;
 
@@ -12,11 +12,11 @@ const processEnv = config.env;
  */
 export function getDatabaseConnection(): Knex {
   const dbConfig = {
-    client: "pg",
+    client: 'pg',
     connection: { ...config.database[processEnv] }
   };
 
-  logger.info("Resolving database connection pool for database");
+  logger.info('Resolving database connection pool for database');
 
   return createInstance(dbConfig);
 }
