@@ -48,7 +48,7 @@ const config: Configuration = {
       password: process.env.DB_PASSWORD || 'Admin@1234',
       database: process.env.DB_DATABASE || 'scraper'
     }
-  },
+  }
 };
 
 export default config;

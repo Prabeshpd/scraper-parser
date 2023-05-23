@@ -5,7 +5,15 @@
   "repository": "git@github.com:Prabeshpd/scraper-parser.git",
   "author": "Prabeshpd <39412015+Prabeshpd@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rimraf dist",
+    "start": "node dist/server.js",
+    "start:dev": "nodemon | pino-pretty",
+    "prettify": "prettier --write ."
+  },
   "devDependencies": {
+    "prettier": "^2.8.8",
     "typescript": "^5.0.4"
   },
   "dependencies": {

@@ -15,7 +15,6 @@ export type TagPayload = Omit<TagModel, 'id' | 'created_at' | 'updated_at'>;
 
 class Tag extends BaseModel {
   public static table = 'tags';
-
 }
 
 export default Tag;
