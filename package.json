@@ -1,0 +1,20 @@
+{
+  "name": "scraper-parser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Prabeshpd/scraper-parser.git",
+  "author": "Prabeshpd <39412015+Prabeshpd@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@types/amqplib": "^0.10.1",
+    "amqplib": "^0.10.3",
+    "dotenv": "^16.0.3",
+    "knex": "^2.4.2",
+    "nodemon": "^2.0.22",
+    "pino": "^8.14.1",
+    "type-fest": "^3.11.0"
+  }
+}
