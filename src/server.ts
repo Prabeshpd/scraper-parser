@@ -8,13 +8,13 @@ const connectionParameter = config.rabbitMQ[processEnv];
 const queue = new Queue(connectionParameter);
 
 async function sendQueueMessage(queueName: string, message: string) {
-    const channel = await queue.createChannel();
-    if (!channel) {
-      throw new Error('Rabbit MQ not set properly');
-    }
-    await queue.assertQueue(channel, queueName);
-    await queue.sendMessage(channel, queueName, message);
+  const channel = await queue.createChannel();
+  if (!channel) {
+    throw new Error('Rabbit MQ not set properly');
   }
+  await queue.assertQueue(channel, queueName);
+  await queue.sendMessage(channel, queueName, message);
+}
 
 async function startConnection() {
   try {
@@ -31,9 +31,9 @@ async function startConnection() {
 
     channel.consume('UploadedFile', async (message) => {
       if (!message?.content) return;
-      const data = await JSON.parse(message?.content.toString()) as ParseTagParams;
+      const data = (await JSON.parse(message?.content.toString())) as ParseTagParams;
       await storeTagCsv(data);
-      await sendQueueMessage('SearchResult', JSON.stringify({userId: data.userId}))
+      await sendQueueMessage('SearchResult', JSON.stringify({ userId: data.userId }));
       channel.ack(message);
     });
   } catch (err) {
@@ -41,4 +41,4 @@ async function startConnection() {
   }
 }
 
-startConnection()
+startConnection();

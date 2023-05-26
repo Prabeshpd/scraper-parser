@@ -3,7 +3,7 @@ import { Transform } from 'node:stream';
 import csvtojson from 'csvtojson';
 import { pipeline } from 'node:stream/promises';
 
-import * as tagService from '../services/tag'
+import * as tagService from '../services/tag';
 
 export interface ParseTagParams {
   filePath: string;
@@ -18,7 +18,7 @@ const dataSource = function (userId: number) {
       const payload = {
         userId,
         name: data
-      }
+      };
       return callback(null, JSON.stringify(payload));
     }
   });
