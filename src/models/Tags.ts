@@ -15,6 +15,10 @@ export type TagPayload = Omit<TagModel, 'id' | 'created_at' | 'updated_at'>;
 
 class Tag extends BaseModel {
   public static table = 'tags';
+
+  public static async insertData(data: TagPayload | TagPayload[]) {
+    return this.insert<TagPayload | TagPayload[]>(data);
+  }
 }
 
 export default Tag;

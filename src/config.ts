@@ -23,6 +23,16 @@ interface Configuration {
       database: string;
     };
   };
+  rabbitMQ: {
+    test: {
+      host: string;
+      port: number;
+    };
+    local: {
+      host: string;
+      port: number;
+    }
+  }
 }
 
 dotenv.config();
@@ -47,6 +57,16 @@ const config: Configuration = {
       user: process.env.DB_USER || 'postgres',
       password: process.env.DB_PASSWORD || 'Admin@1234',
       database: process.env.DB_DATABASE || 'scraper'
+    }
+  },
+  rabbitMQ: {
+    test: {
+      host: process.env.RABBIT_MQ_HOST || 'localhost',
+      port: +(process.env.RABBIT_MQ_PORT || 5672),
+    },
+    local: {
+      host: process.env.RABBIT_MQ_HOST || 'localhost',
+      port: +(process.env.RABBIT_MQ_PORT || 5672),
     }
   }
 };
